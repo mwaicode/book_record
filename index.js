@@ -31,14 +31,7 @@ db.sequelize.authenticate()
     console.error('Unable to connect to the database:', err);
   });
 
-// Sync database and start server
-// db.sequelize.sync().then(() => {
-//   app.listen(PORT, () => {
-//     console.log(`Server is running on http://localhost:${PORT}`);
-//   });
-// }).catch(err => {
-//   console.error('Unable to sync database:', err);
-// });
+
 db.sequelize.sync({ force: false }) // Ensure force is false to avoid dropping tables
   .then(() => {
     console.log('Database synchronized.');
